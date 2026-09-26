@@ -1,14 +1,16 @@
 # Modelo de datos — V11
 
-## Proyecto
-`Project`: schemaVersion:10, assets:AssetReference[], families:RevitFamily[], groups:Group[], id UUID, name, unit:'cm', createdAt/updatedAt ISO UTC, room, objects:MovableObject[], photos:[], models:[]. Esquema Zod estricto. Fotos y modelos raíz continúan vacíos hasta sus fases; no aceptar ni descartar silenciosamente entidades desconocidas.
+Resumen vigente en [ARCHITECTURE.md](../ARCHITECTURE.md). Las secciones V1–V10 son historia de migraciones; «vigente» dentro de ellas significa vigente en aquella fase. Política actual: muebles fuera de límites/solapados permitidos con aviso, hojas sin colisiones, contornosV11, curvas GJK. Los esquemas históricos se conservan para validar importaciones antiguas.
 
-`Room`: id, shape:'rectangle', dimensions:{width,depth,height}, wallThicknessCm, wallColor, floorColor, fixedElements:Opening[], fixedVolumes:FixedVolume[]. Medidas interiores. Ancho/fondo 50–2000 cm, alto 50–1000 cm, grosor 1–100 cm. Los límites son restricciones del prototipo, no recomendaciones.
+## Proyecto
+`Project`: schemaVersion:11, assets:AssetReference[], families:RevitFamily[], groups:Group[], id UUID, name, unit:'cm', createdAt/updatedAt ISO UTC, room, objects:MovableObject[], photos:[], models:[]. Esquema Zod estricto. Fotos y modelos raíz continúan vacíos hasta sus fases; no aceptar ni descartar silenciosamente entidades desconocidas.
+
+`Room`: id, shape:'rectangle'|'polygon', vertices opcional (obligatorio para polygon), dimensions:{width,depth,height}, wallThicknessCm, wallColor, floorColor, fixedElements:Opening[], fixedVolumes:FixedVolume[]. Medidas interiores. Ancho/fondo 50–2000 cm, alto 50–1000 cm, grosor 1–100 cm. Los límites son restricciones del prototipo, no recomendaciones.
 
 `Measurement`: defaultCm:number, estimatedCm:number|null, manualCm:number|null. Valor efectivo manual > estimación > ejemplo. Validar todos los valores almacenados, no solo el efectivo. Cero permitido en posiciones, no en dimensiones. No admitir NaN o infinitos. Cambiar un nombre no convierte las estimaciones en medidas reales.
 
 ## Elementos estructurales implementados
-`Opening`: id UUID, kind:'door'|'window', name (1–80 caracteres), wallId:'north'|'east'|'south'|'west', width, height, offset, sill (todos Measurement). Máximo 64 por habitación.
+`Opening`: id UUID, kind:'door'|'window', name (1–80 caracteres), wallId cardinal para rectangle o UUID de arista para polygon, width, height, offset, sill (todos Measurement). Máximo 64 por habitación.
 - width: ancho del hueco completo (1–2000 cm), no luz libre entre marcos.
 - height: alto del hueco (1–1000 cm).
 - offset: posición desde el inicio de la pared (0–2000 cm).
@@ -19,7 +21,7 @@
 
 Validar que offset+width ≤ longitud de pared y sill+height ≤ alto. No admitir IDs duplicados ni intersección de dos rectángulos de hueco en la misma pared. Se permite contacto de bordes y huecos apilados sin intersección vertical. Al reducir habitación, rechazar cambios que invaliden un hueco existente; no mover ni escalar medidas reales automáticamente.
 
-Puertas sin swing se representan como hueco y marco; con swing añaden hoja móvil; ventanas como hueco, marco y vidrio aproximado. Los marcos tienen ancho visual de hasta 3 cm, reducido proporcionalmente en huecos pequeños. Su geometría NO sustituye las medidas del hueco. La futura fase de colisiones deberá modelar hojas y sus estados antes de afirmar colisión física completa.
+Puertas sin swing se representan como hueco y marco; con swing añaden hoja móvil; ventanas como hueco, marco y vidrio aproximado. Los marcos tienen ancho visual de hasta 3 cm, reducido proporcionalmente en huecos pequeños. Su geometría NO sustituye las medidas del hueco. La hoja y el arco son referencia visual y no colisionan con muebles; el límite de apertura frente a paredes usa el eje de hoja (`maxDoorAngle`).
 
 ## Geometría derivada
 `Box`: id, wallId opcional, center:{x,y,z}, size:{x,y,z}. Centímetros y Z vertical en dominio; Three usa (X,Z,Y).

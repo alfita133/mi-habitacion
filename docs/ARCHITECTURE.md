@@ -1,4 +1,6 @@
-# Arquitectura
+# Arquitectura — registro histórico
+
+**Guía vigente consolidada:** [ARCHITECTURE.md](../ARCHITECTURE.md) en raíz. Lo siguiente conserva evolución por fases. Las antiguas afirmaciones sobre bloqueo de colisiones, hoja física, ausencia de muebles, física conservadora y prohibición de otro repositorio están sustituidas. GitHub público está autorizado. SVG fallback, ProjectV11, piezas/GJK, hoja de referencia y assetsV9 son la situación actual.
 
 Aplicación personal con habitaciones independientes y una habitación activa. React + TypeScript del starter compatible con Sites; Three.js directo para 3D y SVG para plano. Vinext sirve la web; los datos de la habitación se procesan en el navegador. Sin API de negocio ni base de datos remota.
 

@@ -1,5 +1,7 @@
 # Roadmap
 
+Traspaso26-09-2026: guías raíz consolidadas. Orden vigente: U5 (incluye B01) → B02 → cerrar QA descarga F7a → P4. Fotos/GLB/IA pausados. RevitWindows independiente. Estado auditado/evidencia en PROJECT_STATUS.md.
+
 Checkpoint GitHub (2026-09-26): **DONE**. Repositorio público `alfita133/mi-habitacion`, rama `main`, snapshot completo de 204 archivos subido mediante API GitHub y árbol idéntico al local comprobado. Historial anterior permanece en Sites/local. U5 sigue pendiente de cierre QA y despliegue.
 
 Cada fase requiere código, pruebas relevantes, ejecución, documentación actualizada y commit. DONE significa que se ha verificado, no solo escrito.
@@ -63,7 +65,7 @@ Este orden sustituye «Próximo incremento» anterior. Los IDs históricos se co
 - F8c conserva el objetivo original de fotos de habitación: no dar por resuelta la detección de paredes/puertas/objetos por haber analizado un mueble aislado.
 
 ## Siguiente acción
-Continuar P4: definir altura vinculada para escritorio y extensibilidad a otros mecanismos, sin escalar grosor de tablero/pies; primero contrato y pruebas. No iniciar fotos/GLB/IA. F7a conserva comprobación de descarga pendiente en navegador real; no bloquea P4.
+Seguir el procedimiento U5 en `../PROJECT_STATUS.md`: dibujo/clic/galería/móvil/teclado y persistencia; B01 reproducido pendiente. Después B02, descarga/reimportaciónF7a y P4. No iniciar fotos/GLB/IA.
 
 ## Prioridad vigente — objetos huecos (2026-09-22)
 Este orden adelanta F9b y elimina su dependencia de GLB: representación procedural independiente.

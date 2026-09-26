@@ -1,54 +1,35 @@
 # Mi habitación
 
-Editor personal incremental con varias habitaciones guardadas, plano 2D y vista 3D sincronizados, medidas reales, muebles, conjuntos, huecos estructurales, IndexedDB y copias JSON V6 con migración desde V1–V5.
+Editor personal web de habitaciones con plano2D y vista3D sincronizados, contornos rectangulares/poligonales, medidas reales, objetos por piezas, avisos de colisión, estructura editable y guardado local de varias habitaciones.
 
-## Continuar el desarrollo
-Leer en este orden:
-1. docs/PROJECT_STATE.md
-2. docs/ROADMAP.md
-3. docs/ARCHITECTURE.md
-4. docs/DECISIONS.md
-5. docs/DATA_MODEL.md
+## Continuar en Codex
+Leer [AGENTS.md](AGENTS.md), [PROJECT_STATUS.md](PROJECT_STATUS.md), [REQUIREMENTS.md](REQUIREMENTS.md) y [ARCHITECTURE.md](ARCHITECTURE.md). Contienen requisitos consolidados, evidencia del código, límites, decisiones y siguiente tarea exacta sin necesitar el chat de Work.
 
-Después inspeccionar `git status`, últimos commits y la siguiente tarea exacta. La aplicación completa todavía NO está terminada. No hay importación ni análisis de fotografías todavía.
+Estado: ProjectV11; U5 dibujo por clic y galería visual implementados pero pendientes de cerrar QA. Fotos/GLB/IA aún no implementados y pausados por el usuario. Biblioteca Revit web disponible; complementoWindows preparado, no compilado/probado.
 
 ## Ejecutar
-Node >=22.13 y pnpm según `packageManager` en package.json.
+Node>=22.13; auditado conNode24.19. pnpm11.25.0 según packageManager y lockfile.
 
 ```sh
 pnpm install --frozen-lockfile
 pnpm dev
+# http://localhost:5173
 pnpm test
 pnpm typecheck
 pnpm build
 ```
 
-En el entorno Work gestionado, usar el flujo Sites y `node "$SITES_PNPM_BIN"` en lugar de `pnpm` si este no está en PATH. Preview para QA: `sites-preview start /workspace/sites/mi-habitacion`; al finalizar `sites-preview stop`. En otra máquina usar `pnpm dev` (detección de perfil mediante scripts del proyecto).
+El perfilportable se elige automáticamente en un clon nuevo. Desarrollo local no requiere credenciales de Sites ni motoresIA. Comprobaciones de traspaso:78tests, typecheck, build y arranqueHTTP200; no instalaciónWindows ni QAWebGL completa.
 
-## Uso
-- Los 400 × 350 × 260 cm iniciales son un ejemplo.
-- Introducir ancho, largo y alto reales en cm, con punto o coma decimal, y pulsar Aplicar medidas.
-- Orbitar con arrastre, zoom con rueda/pellizco y desplazar con botón derecho/dos dedos. Centrar restaura cámara.
-- Añadir hueco permite definir una puerta o ventana indicando su pared A/B/C/D, ancho, alto y posición. Las puertas no incluyen hoja móvil todavía.
-- Los huecos se pueden editar y eliminar con confirmación; no pueden solaparse ni quedar fuera de la pared.
-- Las paredes cercanas y el techo se pueden ocultar solo en la visualización.
-- Exportar copia descarga JSON de las medidas aplicadas. Abrir copia valida el formato y añade otra habitación sin sustituir la actual.
-- El guardado es local al navegador y origen. Para pasar del móvil al PC, exportar/importar. Borrar datos del navegador elimina esa copia local.
-- Si no hay WebGL2, se utiliza 3D vectorial real, sin texturas ni sombras. La vista fotorrealista requiere una futura fase de materiales y reconstrucción, además de un navegador compatible.
+## Datos y uso
+- Habitación inicial vacía400×350×260cm: ejemplo, no medición. Introducir medidas reales; manual prevalece sobre estimaciones/ejemplos.
+- Dibujar permite clic-esquinas, cierre, edición y contornos cóncavos. Añadir objeto abre biblioteca de muebles y elementos estructurales diferenciados; drag al plano o clic/Enter.
+- Seleccionar muestra controles; XY centro, Z base. Altura del objeto y elevación son distintas. Grupos/ocultación/atajos y giros15/45/90 disponibles.
+- Colisiones se avisan en rojo sin bloquear. Ocultos siguen físicos. Hoja/arco de puerta solo referencia; apertura limitada por paredes (limitación actual de espesor en PROJECT_STATUS).
+- SVGRenderer compatible si no hayWebGL2; perspectiva real sin texturas/sombras.
+- Habitaciones guardadas en IndexedDB del navegador y origen. **Git no contiene tus habitaciones reales.** Exportar cada habitación desde la app anterior y abrir su copia en la nueva. No borrar datos anteriores hasta verificar.
+- Copia completa `.habitacion.pack`; JSON histórico aceptado; intercambioRevit `.habitacion.json`. Sin sincronización automática entre dispositivos.
 
-## Validación
-Consultar docs/TESTING.md. Dominio y mallas se prueban con Node. No se ha medido aún el rendimiento con muebles ni fotos reales.
-
-## Hito actual
-- Mis habitaciones: crear, abrir, renombrar, duplicar y eliminar con confirmación; miniaturas del plano. La habitación anterior se conserva automáticamente.
-- Ampliar/restaurar plano o 3D con sus iconos: prioriza una vista dentro de la página, sin pantalla completa del navegador.
-- Seleccionar muestra acciones y propiedades; Editar habitación abre medidas y estructura. Objetos abre la lista y permite añadir volúmenes medidos.
-- Ctrl+clic selecciona varias unidades. Arrastrar en plano o elevar en3D mueve la selección; ocultar/unir y copiar/cortar/pegar funcionan sobre ella.
-- Ctrl/Cmd+C/X/V/Z/Y; undo/redo100pasos. Historial y clipboard se reinician al cambiar habitación o recargar. Alto inicial de objetos antiguos = alto al migrar.
-- Avisos rojos sin bloquear movimientos o guardado. Cajas aproximadas; obstáculos fijos y fotografías pendientes. Exportación individual por habitación.
-- Guardado local; usar una sola pestaña para editar. No hay sincronización entre dispositivos.
-
-## Familias Revit
-Panel Familias Revit: importar `.rfa` (queda pendiente), descargar original, procesar mediante complemento Windows e importar su `.revit-families.json`. Elegir tipo, confirmar medidas, editar parámetros y añadir explícitamente. Sugerencias locales por reglas; nunca colocación automática. Las cajas web son aproximaciones medidas. Puertas/ventanas siguen siendo estructura y pueden moverse en plano/cambiar pared.
-
-Exportar para Revit descarga `.habitacion.json` portable con originales y bindings. Código del complemento y guía en `integrations/revit` y descargables desde el panel. **Preparado, no compilado ni probado en Windows/Revit**. Ver `docs/REVIT_INTEGRATION.md`. El retorno actual es snapshot original, no sincroniza cambios posteriores en Revit.
+## Revit y publicación
+Ver [integrations/revit/README.md](integrations/revit/README.md). `.rfa` se guarda pendiente hasta procesarlo con APIoficial enWindows; no se interpreta binario en navegador. C# actual rechaza habitaciones poligonales, omite incompatibilidades con informe y no sincroniza cambiosRevit de vuelta.
+El repositorioGitHub tiene el código actual; la publicaciónSites acreditada esV11, anterior aU5. Migrar código no despliega cambios. Estado y pruebas detalladas en PROJECT_STATUS y docs/TESTING.md.

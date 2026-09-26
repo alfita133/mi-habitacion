@@ -86,3 +86,6 @@ Referencias oficiales consultadas: https://www.sweethome3d.com/users-guide/ (par
 
 ## 2026-09-26 — Respaldo público GitHub
 El usuario autorizó expresamente visibilidad pública. Se creó alfita133/mi-habitacion y se transfirió el snapshot íntegro mediante Git Data API, conservando nombres, permisos y bytes (SHA de árbol idéntico). El shell no dispone de credenciales de GitHub. No se trasladó el historial histórico de Sites; se conserva en origin/local y no debe sobrescribirse. Para continuar desarrollo en GitHub, clonar su main y mantener su ascendencia. Las habitaciones guardadas en IndexedDB del navegador no forman parte de los archivos fuente del repositorio.
+
+## 2026-09-26 — Traspaso autónomo a Codex
+Guías raíz AGENTS/PROJECT_STATUS/REQUIREMENTS/ARCHITECTURE consolidadas desde instrucciones visibles y auditoría del código. Evidencia por función y estados parciales separados. Corregidas referencias documentales obsoletas, sin cambios de comportamiento. La pausa de fotos/GLB/IA sigue vigente; multi-habitaciones, catálogo pequeño y GitHub público están autorizados. Revit preparado no se declara probado. Continuar desde mainGitHub, preservando historia; no requerir acceso al chat ni al entorno Work. El checkpoint de aplicación desplegada permaneceV11 y U5 pendienteQA. B01/B02 reproducidos quedan para trabajo posterior.
