@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+ <AddIn Type="Command"><Name>Habitacion - Procesar familias</Name><Assembly>C:\Habitacion\Habitacion.Revit.dll</Assembly><AddInId>fe4f38ce-c940-4728-8746-61dd06c74b66</AddInId><FullClassName>Habitacion.Revit.ExtractFamilies</FullClassName><VendorId>HABI</VendorId><Text>Procesar familias RFA</Text></AddIn>
+ <AddIn Type="Command"><Name>Habitacion - Importar</Name><Assembly>C:\Habitacion\Habitacion.Revit.dll</Assembly><AddInId>790e1aad-6c7b-43fa-8410-ec177a20edb1</AddInId><FullClassName>Habitacion.Revit.ImportProject</FullClassName><VendorId>HABI</VendorId><Text>Importar habitacion</Text></AddIn>
+ <AddIn Type="Command"><Name>Habitacion - Snapshot</Name><Assembly>C:\Habitacion\Habitacion.Revit.dll</Assembly><AddInId>f78584df-cc62-4177-8627-d1a014582579</AddInId><FullClassName>Habitacion.Revit.ExportSnapshot</FullClassName><VendorId>HABI</VendorId><Text>Exportar snapshot original (sin cambios Revit)</Text></AddIn>
+</RevitAddIns>

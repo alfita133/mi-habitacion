@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 99,
+  "id": "00f855c8-dc27-49b7-ad52-632ddbdf92de",
+  "name": "Mi habitación",
+  "unit": "cm",
+  "createdAt": "2026-09-15T23:57:21.798Z",
+  "updatedAt": "2026-09-15T23:57:21.800Z",
+  "room": {
+    "id": "f51ad530-7675-4167-a33f-19c93511b986",
+    "shape": "rectangle",
+    "dimensions": {
+      "width": {
+        "defaultCm": 400,
+        "estimatedCm": null,
+        "manualCm": 425.5
+      },
+      "depth": {
+        "defaultCm": 350,
+        "estimatedCm": null,
+        "manualCm": 315
+      },
+      "height": {
+        "defaultCm": 260,
+        "estimatedCm": null,
+        "manualCm": 245
+      }
+    },
+    "wallThicknessCm": 12,
+    "wallColor": "#e3e9f1",
+    "floorColor": "#b7c5d5",
+    "fixedElements": []
+  },
+  "objects": [],
+  "photos": [],
+  "models": []
+}

@@ -1,0 +1,2 @@
+import {effectiveDimensions,type Room} from '../domain/model.ts';
+export function CoordinateGuide({room}:{room:Room}){const d=effectiveDimensions(room);return <div className="coordinate-guide"><strong>Origen: esquina superior izquierda, en el suelo</strong><p>X → ancho: 0 a {d.width} cm · Y ↓ fondo: 0 a {d.depth} cm</p><p>Z ↑ altura: suelo 0 a techo {d.height} cm. X/Y indican el centro; Z, la base.</p><p>Para que quepa, también cuentan el tamaño y el giro. Salir de estos límites avisa en rojo, pero permite guardar.</p></div>;}
