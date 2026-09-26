@@ -1,7 +1,7 @@
 # Estado del proyecto
 
 ## Objetivo actual
-2026-09-26 — GitHub público `https://github.com/alfita133/mi-habitacion` creado y verificado en cuenta `alfita133`. Autorización pública expresa del usuario. Transferencia del proyecto completo en curso mediante conector GitHub: snapshot de archivos versionados, sin node_modules ni secretos ignorados. El historial anterior permanece en el repositorio local y en Sites; el snapshot GitHub tendrá su propio commit. 78 tests y TypeScript PASS en el último checkpoint de código. El bloqueo anterior por cuota quedó resuelto.
+2026-09-26 — Respaldo GitHub **DONE**: `https://github.com/alfita133/mi-habitacion`, público, rama `main`, 204 archivos versionados. Primer snapshot completo publicado en `52f5b365e52417684ae6d666f171ba8c0a664e8a`; árbol `e14104d657ca931ec68869384128479ccaa6d166` idéntico al local `a7a199e`, incluidos los siete binarios. Este checkpoint documental se publica después. Transferencia por API GitHub; no se usó git push por falta de autenticación de shell. Historial anterior conservado en local/Sites; GitHub tiene historial independiente del snapshot. Remotos: `origin` Sites, `github` GitHub. No forzar push entre historias; continuar en un clon de GitHub para trabajar allí. 78 tests y TypeScript PASS en el último checkpoint de código; este cambio solo documenta el respaldo. Siguiente objetivo funcional: cerrar U5.
 
 2026-09-23 — U5 IN PROGRESS: rediseño solicitado tras captura de lista de objetos. Prioridad sobre P4: dibujo encadenado por clic, tramo provisional/cotas, insertar esquinas y biblioteca visual con miniaturas derivadas del modelo. Referencias oficiales Sweet Home3D/Floorplanner consultadas; sin cambiar esquema ni iniciar fotos/GLB. Geometría de borrador, lienzo amplio y miniaturas compartidas implementados; 78 pruebas PASS. Siguiente: QA de dibujo ratón, miniaturas, selección múltiple y móvil; corregir antes de publicar.
 2026-09-23 — U1–U4 DONE; publicación SUCCEEDED. ProjectV11: contorno poligonal simple, puerta limitada por paredes sin colisión con muebles, biblioteca de elementos y UI contextual/móvil. 75 tests PASS y TypeScript PASS. QA navegador: L por clic y coordenadas, arrastre de preset/fijo, teclado, puerta90°, ocultar, edición contextual, recarga y móvil390px PASS. Capturas en docs/qa/v11-*.jpg. No se han iniciado fotos/GLB/IA.
@@ -46,7 +46,7 @@ P1–P3:60 tests Node PASS, TypeScript PASS; QA crear escritorio y cajonera en h
 QA F5.4 previa: puerta norte offset40→140 mediante arrastre, Deshacer→40, cambio a este/offset120; hueco real3D actualizado. Pruebas de dominio incluyen ventana/cotas y geometría.
 
 ## Siguiente tarea exacta
-Verificar transferencia a GitHub: comparar SHA del árbol completo con `git rev-parse HEAD^{tree}` y confirmar rama main y visibilidad pública. Después cerrar QA móvil/selección múltiple y publicación de U5 antes de continuar P4. Mantener `origin` de Sites y remoto `github` separado.
+Cerrar QA U5: comprobar en navegador selección múltiple de tarjetas y diseño móvil, corregir incidencias y publicar con Sites solo después de verificar. Dibujo y miniaturas ya codificados; 78 tests PASS. Después continuar P4. No iniciar fotos/GLB/IA.
 
 Siguiente tarea funcional exacta: P4, definir contrato de altura vinculada para escritorio elevable y pruebas de tablero/travesaño/patas/pies, preservando modelos personalizados. No iniciar fotos/GLB/IA.
 

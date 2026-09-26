@@ -83,3 +83,6 @@ Presets usan pointer capture para drag y click/Enter como alternativa. Invertir 
 
 ### U5 — construcción y biblioteca visual
 Referencias oficiales consultadas: https://www.sweethome3d.com/users-guide/ (paredes encadenadas por clic, edición contextual, catálogo por categorías) y https://cdn.floorplanner.com/static/brochures/FloorplannerManualEN.pdf (barra de herramientas, biblioteca visual, propiedades de selección). Se adoptan patrones de interacción con diseño propio, sin copiar código/assets ni marcas. Miniaturas SVGRenderer derivadas de createObjectGroup compartido con visor, sin WebGL adicional ni productos ficticios. Dibujo tiene borrador/historial local; Aplicar sigue siendo una operación del historial de proyecto. V11 sin cambio de esquema.
+
+## 2026-09-26 — Respaldo público GitHub
+El usuario autorizó expresamente visibilidad pública. Se creó alfita133/mi-habitacion y se transfirió el snapshot íntegro mediante Git Data API, conservando nombres, permisos y bytes (SHA de árbol idéntico). El shell no dispone de credenciales de GitHub. No se trasladó el historial histórico de Sites; se conserva en origin/local y no debe sobrescribirse. Para continuar desarrollo en GitHub, clonar su main y mantener su ascendencia. Las habitaciones guardadas en IndexedDB del navegador no forman parte de los archivos fuente del repositorio.

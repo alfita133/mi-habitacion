@@ -1,6 +1,6 @@
 # Roadmap
 
-Checkpoint GitHub (2026-09-26): **IN PROGRESS**. Repositorio público `alfita133/mi-habitacion` creado. Transferencia y verificación del snapshot completo en curso mediante API GitHub; conserva historial previo en Sites/local. U5 sigue pendiente de cierre QA y despliegue.
+Checkpoint GitHub (2026-09-26): **DONE**. Repositorio público `alfita133/mi-habitacion`, rama `main`, snapshot completo de 204 archivos subido mediante API GitHub y árbol idéntico al local comprobado. Historial anterior permanece en Sites/local. U5 sigue pendiente de cierre QA y despliegue.
 
 Cada fase requiere código, pruebas relevantes, ejecución, documentación actualizada y commit. DONE significa que se ha verificado, no solo escrito.
 
